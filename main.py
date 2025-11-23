@@ -1,5 +1,15 @@
+from TextSummarizer.pipeline.stage_01_DI import DataIngestionTrainingPipeline
 from TextSummarizer.logging import logger
 
 
-logger.info("Starting the text summarization application...")
+
+STAGE_NAME = "Data Ingestion Stage"
+try:
+    logger.info(f">>>>>> Stage {STAGE_NAME} started <<<<<<")
+    data_ingestion = DataIngestionTrainingPipeline()
+    data_ingestion.main()
+    logger.info(f">>>>>> Stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+    logger.exception(f"Error in stage {STAGE_NAME}: {e}")
+    raise e
 
