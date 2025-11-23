@@ -5,7 +5,7 @@ from TextSummarizer.logging import logger
 from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
-from typing import Any
+from typing import Any, List
 
 
 @ensure_annotations
@@ -32,11 +32,11 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
     
 
 @ensure_annotations
-def create_directories(path_to_directories: list, verbose: bool = True) -> None:
+def create_directories(path_to_directories: List[str], verbose: bool = True) -> None:
     """Creates list of directories
 
     Args:
-        path_to_directories (list): List of path to directory
+        path_to_directories (List[str]): List of path to directory
         verbose (bool, optional): Whether to log directory creation. Defaults to True.
     """
     for path in path_to_directories:
