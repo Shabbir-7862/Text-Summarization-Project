@@ -9,9 +9,11 @@ from TextSummarizer.entity import (DataIngestionConfig)
 
 
 class DataIngestion:
+
     def __init__(self, config: DataIngestionConfig):
         self.config = config
         
+
     def download_file(self):
         """Download data.zip from source_URL using safe streaming."""
         url = self.config.source_URL
@@ -54,6 +56,8 @@ class DataIngestion:
             if tmp_path.exists():
                 tmp_path.unlink()  # remove partial file
             raise e
+
+
 
     def extract_zip_file(self):
         """Safely extract ZIP file member-by-member with clear error logging."""
